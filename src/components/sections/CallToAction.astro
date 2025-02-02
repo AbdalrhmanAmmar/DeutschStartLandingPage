@@ -1,0 +1,64 @@
+---
+---
+<section class="cta">
+  <div class="container">
+    <h2>لا تضيع المزيد من الوقت!</h2>
+    <p>ابدأ رحلتك نحو إتقان اللغة الألمانية اليوم</p>
+    <div class="cta-buttons">
+      <a href="/register" class="btn btn-primary">ابدأ مجاناً</a>
+      <a href="/plans" class="btn btn-secondary">اكتشف خططنا</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.cta {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--primary) 0%, #B80000 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--white);
+  color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--bg-light);
+}
+
+.btn-secondary {
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>

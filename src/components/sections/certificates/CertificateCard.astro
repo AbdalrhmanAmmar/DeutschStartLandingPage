@@ -1,0 +1,81 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  uses: string[];
+}
+
+const { icon, title, description, uses } = Astro.props;
+---
+<div class="certificate-card">
+  <img src={icon} alt={title} class="certificate-icon" />
+  <h3>{title}</h3>
+  <p class="description">{description}</p>
+  <ul class="uses-list">
+    {uses.map(use => <li>{use}</li>)}
+  </ul>
+</div>
+
+<style>
+.certificate-card {
+  background: var(--white);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+}
+
+.certificate-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+}
+
+h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.uses-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.uses-list li {
+  margin-bottom: 0.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  color: var(--text-secondary);
+}
+
+.uses-list li::before {
+  content: "✓";
+  color: var(--primary);
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .certificate-card {
+    padding: 1.5rem;
+  }
+}
+</style>

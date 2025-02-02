@@ -1,0 +1,88 @@
+---
+import CertificateCard from './certificates/CertificateCard.astro';
+import { certificatesData } from './certificates/CertificatesData';
+---
+<section id="certificates" class="certificates">
+  <div class="container">
+    <h2>شهادات معتمدة دولياً</h2>
+    <p class="section-desc">احصل على شهادات معترف بها تؤهلك للدراسة والعمل في ألمانيا والاتحاد الأوروبي</p>
+    
+    <div class="certificates-grid">
+      {certificatesData.map((certificate, index) => (
+        <div class={`certificate-wrapper ${index === 3 ? 'dsh-certificate' : ''}`}>
+          <CertificateCard {...certificate} />
+        </div>
+      ))}
+    </div>
+
+    <div class="cta-wrapper">
+      <a href="/certificates" class="btn btn-primary">اكتشف المزيد عن الشهادات</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.certificates {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.section-desc {
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.2rem;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.certificate-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.dsh-certificate {
+  margin-top: 2rem;
+}
+
+.cta-wrapper {
+  text-align: center;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .dsh-certificate {
+    margin-top: 0;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+}
+</style>

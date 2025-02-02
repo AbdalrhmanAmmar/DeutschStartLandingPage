@@ -1,0 +1,105 @@
+---
+import { faqCategories } from './FaqData';
+---
+<nav class="faq-nav">
+  <div class="nav-container">
+    {faqCategories.map(category => (
+      <a href={`#${category.title.replace(/\s+/g, '-')}`} class="nav-item">
+        {category.title}
+      </a>
+    ))}
+  </div>
+</nav>
+
+<style>
+.faq-nav {
+  background: var(--white);
+  padding: 1rem 0;
+  position: sticky;
+  top: 4rem;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-item {
+  color: var(--text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    gap: 1rem;
+  }
+
+  .nav-item {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+</style>
+
+<script>
+const navItems = document.querySelectorAll('.nav-item');
+const sections = document.querySelectorAll('.faq-section');
+
+function updateActiveSection() {
+  const fromTop = window.scrollY + 200;
+
+  sections.forEach((section, index) => {
+    if (
+      section.offsetTop <= fromTop &&
+      section.offsetTop + section.offsetHeight > fromTop
+    ) {
+      navItems.forEach(item => item.classList.remove('active'));
+      navItems[index].classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveSection);
+updateActiveSection();
+
+navItems.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    const href = item.getAttribute('href');
+    const target = document.querySelector(href);
+    if (target) {
+      const topOffset = 150;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+</script>

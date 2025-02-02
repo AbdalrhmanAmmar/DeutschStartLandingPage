@@ -1,0 +1,85 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="تعلم اللغة الألمانية بسهولة وفعالية" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		/* ألوان مستوحاة من العلم الألماني وتناسب التعليم */
+		--primary: #DE0000;        /* أحمر للعناصر الرئيسية */
+		--secondary: #FFD700;      /* ذهبي للتأكيد */
+		--accent: #000000;         /* أسود للتباين */
+		--text-primary: #333333;
+		--text-secondary: #666666;
+		--bg-light: #F8F9FA;
+		--bg-warm: #FFF9E6;
+		--white: #FFFFFF;
+	}
+	
+	html {
+		font-family: 'Tajawal', system-ui, sans-serif;
+		background: var(--bg-light);
+		color: var(--text-primary);
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Cairo', sans-serif;
+		font-weight: 700;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+
+	.btn-primary {
+		background-color: var(--primary);
+		color: var(--white);
+	}
+
+	.btn-primary:hover {
+		background-color: #B80000;
+	}
+
+	.btn-secondary {
+		background-color: var(--secondary);
+		color: var(--accent);
+	}
+
+	.btn-secondary:hover {
+		background-color: #FFE44D;
+	}
+</style>

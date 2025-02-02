@@ -1,0 +1,76 @@
+---
+const features = [
+  {
+    icon: "📚",
+    title: "مناهج معتمدة عالمياً",
+    description: "نستخدم أشهر الكتب المعتمدة: Menschen, Schritte, Netzwerk"
+  },
+  {
+    icon: "⚡",
+    title: "تعلم بوتيرتك الخاصة",
+    description: "ادرس في أي وقت وبالسرعة التي تناسبك"
+  },
+  {
+    icon: "🎯",
+    title: "تمارين تفاعلية",
+    description: "طبق ما تتعلمه فوراً مع تمارين عملية وتفاعلية"
+  },
+  {
+    icon: "🏆",
+    title: "شهادات معتمدة",
+    description: "احصل على شهادات معترف بها دولياً تؤكد مستواك"
+  }
+];
+---
+<section class="features">
+  <div class="container">
+    <div class="features-grid">
+      {features.map(feature => (
+        <div class="feature-card">
+          <div class="feature-icon">{feature.icon}</div>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.features {
+  padding: 4rem 0;
+  background-color: var(--bg-light);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+}
+</style>

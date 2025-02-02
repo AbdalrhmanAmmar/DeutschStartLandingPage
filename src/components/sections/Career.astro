@@ -1,0 +1,96 @@
+---
+import CareerCard from './career/CareerCard.astro';
+import TestimonialCard from './career/TestimonialCard.astro';
+import { careerOpportunities, testimonials } from './career/CareerData';
+---
+<section id="career" class="career">
+    <div class="container">
+        <h2>بوابتك لمستقبل مهني أفضل</h2>
+        <p class="section-desc">إتقان اللغة الألمانية يفتح لك آفاقاً جديدة للعمل والدراسة في ألمانيا</p>
+
+        <div class="career-opportunities">
+            {careerOpportunities.map(opportunity => (
+                <CareerCard {...opportunity} />
+            ))}
+        </div>
+
+        <div class="testimonials">
+            <h3>قصص نجاح طلابنا</h3>
+            <div class="testimonials-grid">
+                {testimonials.map(testimonial => (
+                    <TestimonialCard {...testimonial} />
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.career {
+    padding: 6rem 2rem;
+    background: var(--white);
+}
+
+.career-opportunities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 0 auto 4rem;
+    max-width: 1200px;
+}
+
+.testimonials {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+h2 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.6;
+}
+
+h3 {
+    color: var(--primary);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .career {
+        padding: 4rem 1rem;
+    }
+
+    .career-opportunities {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .career {
+        padding: 3rem 1rem;
+    }
+}
+</style>

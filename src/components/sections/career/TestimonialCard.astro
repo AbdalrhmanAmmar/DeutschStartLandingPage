@@ -1,0 +1,66 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+}
+
+const { quote, author } = Astro.props;
+---
+<div class="testimonial-card">
+  <div class="quote-mark">"</div>
+  <p>{quote}</p>
+  <div class="testimonial-author">{author}</div>
+</div>
+
+<style>
+.testimonial-card {
+  background: var(--bg-warm);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.quote-mark {
+  font-size: 4rem;
+  color: var(--primary);
+  opacity: 0.2;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  line-height: 1;
+}
+
+p {
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  position: relative;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.testimonial-author {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  .quote-mark {
+    font-size: 3rem;
+    top: 0.5rem;
+    right: 1rem;
+  }
+}
+</style>

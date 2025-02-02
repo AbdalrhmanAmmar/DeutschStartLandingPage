@@ -1,0 +1,49 @@
+---
+import CourseCard from './courses/CourseCard.astro';
+import { coursesData } from './courses/CoursesData';
+---
+<section id="courses" class="courses">
+  <div class="container">
+    <h2>دوراتنا التعليمية</h2>
+    <p class="section-desc">اختر المستوى المناسب لك وابدأ رحلة تعلم اللغة الألمانية</p>
+    
+    <div class="courses-grid">
+      {coursesData.map(course => (
+        <CourseCard {...course} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.courses {
+  padding: 6rem 0;
+  background-color: var(--bg-light);
+}
+
+.section-desc {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+h2 {
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
