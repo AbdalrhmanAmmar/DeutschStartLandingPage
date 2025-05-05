@@ -1,38 +1,93 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/navigation/Navbar.astro';
+
+// بيانات SEO مخصصة للصفحة
+const pageTitle = "من نحن - بداية الألمانية | قصتنا ورؤيتنا لتعليم اللغة الألمانية";
+const pageDescription = "تعرف على فريق بداية الألمانية وقصة تأسيس المنصة. نقدم منهجًا متكاملًا لتعلم الألمانية ذاتيًا بخبرة عملية حقيقية.";
+const canonicalURL = "https://www.deutschstart.com/about";
+const ogImage = "https://www.deutschstart.com/images/myimg.jpg";
 ---
 
-<Layout title="من نحن - بداية الألمانية">
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+  canonical={canonicalURL}
+  ogImage={ogImage}
+  ogType="article"
+>
   <Navbar />
-  <main class="about-page">
+  <main class="about-page" itemscope itemtype="https://schema.org/AboutPage">
     <div class="german-flag-strip"></div>
     <div class="container">
-      <div class="about-content">
-        <div class="profile-section">
-          <div class="profile-frame">
-            <img src="/images/myimg.jpg" alt="صورة شخصية" class="profile-image" />
+      <article itemprop="mainEntity">
+        <div class="about-content">
+          <div class="profile-section" itemprop="creator" itemscope itemtype="https://schema.org/Person">
+            <div class="profile-frame">
+              <img 
+                src="/images/myimg.jpg" 
+                alt="مؤسس منصة بداية الألمانية" 
+                class="profile-image"
+                itemprop="image"
+                width="200"
+                height="200"
+                loading="lazy"
+              />
+            </div>
+            <h1 itemprop="headline">مرحباً بكم في بداية الألمانية</h1>
           </div>
-          <h1>مرحباً بكم في بداية الألمانية</h1>
-        </div>
-        
-        <div class="story-section">
-          <p>
-            أنا شغوف باللغة الألمانية وقصتي معها بدأت من خلال رحلة التعلم الذاتي. خلال هذه الرحلة، واجهت تحدي تشتت المصادر وصعوبة إيجاد مسار تعليمي واضح ومنظم.
-          </p>
           
-          <p>
-            من هذا المنطلق، قررت إنشاء "بداية الألمانية" - منصة تعليمية شاملة تجمع كل ما يحتاجه متعلم اللغة الألمانية في مكان واحد. هدفي هو تبسيط رحلة التعلم وتوفير مسار واضح يمنع التشتت ويساعد المتعلمين في الوصول إلى أهدافهم بكفاءة.
-          </p>
+          <div class="story-section" itemprop="description">
+            <p itemprop="text">
+              أنا شغوف باللغة الألمانية وقصتي معها بدأت من خلال رحلة التعلم الذاتي. خلال هذه الرحلة، واجهت تحدي تشتت المصادر وصعوبة إيجاد مسار تعليمي واضح ومنظم.
+            </p>
+            
+            <p itemprop="text">
+              من هذا المنطلق، قررت إنشاء "بداية الألمانية" - منصة تعليمية شاملة تجمع كل ما يحتاجه متعلم اللغة الألمانية في مكان واحد. هدفي هو تبسيط رحلة التعلم وتوفير مسار واضح يمنع التشتت ويساعد المتعلمين في الوصول إلى أهدافهم بكفاءة.
+            </p>
 
-          <p>
-            نحن نؤمن أن تعلم اللغة الألمانية يجب أن يكون منظماً وممتعاً في نفس الوقت. لذلك، قمنا بتطوير منهج شامل يجمع أفضل المصادر والأدوات التعليمية في مكان واحد، مما يوفر تجربة تعلم سلسة وفعالة.
-          </p>
+            <p itemprop="text">
+              نحن نؤمن أن تعلم اللغة الألمانية يجب أن يكون منظماً وممتعاً في نفس الوقت. لذلك، قمنا بتطوير منهج شامل يجمع أفضل المصادر والأدوات التعليمية في مكان واحد، مما يوفر تجربة تعلم سلسة وفعالة.
+            </p>
+          </div>
         </div>
-      </div>
+      </article>
     </div>
   </main>
 </Layout>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDescription} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- بيانات هيكلية إضافية -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "من نحن - بداية الألمانية",
+  "description": "قصة تأسيس منصة تعليم الألمانية الذاتية الأولى للعرب",
+  "url": "https://www.deutschstart.com/about",
+  "publisher": {
+    "@type": "Organization",
+    "name": "بداية الألمانية",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.deutschstart.com/logo.png",
+      "width": "300",
+      "height": "60"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.deutschstart.com/images/og-about.jpg",
+    "width": "1200",
+    "height": "630"
+  }
+}
+</script>
 
 <style>
 .about-page {

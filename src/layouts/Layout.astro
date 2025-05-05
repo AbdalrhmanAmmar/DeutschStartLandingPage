@@ -1,10 +1,15 @@
 ---
 interface Props {
-	title: string;
+  title: string;
+  description: string;  // إضافة خاصية description
+  canonical: string;    // إضافة خاصية canonical
+  ogImage: string;      // إضافة خاصية ogImage
+  ogType: string;       // إضافة خاصية ogType
 }
 
-const { title } = Astro.props;
+const { title, description, canonical, ogImage, ogType } = Astro.props;
 ---
+
 
 <!doctype html>
 <html lang="ar" dir="rtl">
@@ -25,6 +30,8 @@ const { title } = Astro.props;
 <meta property="og:title" content="تعلم الألمانية بمنهجية - دليل deutschstart الشامل" />
 <meta property="og:url" content="https://www.deutschstart.com" />
 <meta property="og:image" content="https://www.deutschstart.com/images/ogImg.jpeg" />
+<meta http-equiv="Content-Language" content="ar" />
+<meta property="og:locale" content="ar_AR" />
 		<title>{title}</title>
 	</head>
 	<body>
