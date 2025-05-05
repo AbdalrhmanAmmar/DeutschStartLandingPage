@@ -1,39 +1,55 @@
 ---
 interface Props {
-  title: string;
-  description: string;  // إضافة خاصية description
-  canonical: string;    // إضافة خاصية canonical
-  ogImage: string;      // إضافة خاصية ogImage
-  ogType: string;       // إضافة خاصية ogType
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
 }
 
-const { title, description, canonical, ogImage, ogType } = Astro.props;
----
+// القيم الافتراضية
+const defaultTitle = "تعلم الألمانية بمنهجية - دليل deutschstart الشامل";
+const defaultDescription = "المرجع الشامل لتعلم الألمانية ذاتياً - خارطة طريق مدروسة تأخذك من الصفر إلى الإتقان";
+const defaultCanonical = "https://www.deutschstart.com";
+const defaultOgImage = "https://www.deutschstart.com/images/ogImg.jpeg";
+const defaultOgType = "website";
 
+// دمج الخصائص مع القيم الافتراضية
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  canonical = defaultCanonical,
+  ogImage = defaultOgImage,
+  ogType = defaultOgType
+} = Astro.props;
+---
 
 <!doctype html>
 <html lang="ar" dir="rtl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="المرجع الشامل لتعلم الألمانية ذاتياً - خارطة طريق مدروسة تأخذك من الصفر إلى الإتقان خطوة بخطوة، شروح مبسطة، مصادر مجانية مرفقة بخطة دراسة واضحة، ونصائح عملية من متحدثين أصليين. تعلّم في أي وقت ومن أي مكان دون الحاجة إلى معلم!" />
-				<meta name="viewport" content="width=device-width" />
-				<meta name="keywords" content="بداية تعلم الألمانية، تعليم ألماني ذاتي، منهج deutschstart، خطة دراسة ألمانية، تعلم الألمانية للمبتدئين العرب، مصادر مجانية لألمانية" />		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
-				<meta name="author" content="فريق deutschstart | بداية الألمانية" />
-				<meta name="brand" content="deutschstart" />
-<meta name="application-name" content="بداية الألمانية" />
-<meta name="google-site-verification" content="fT4o3RtWmiGf0Rc5RGXgcd5NIvO6sGThG2idP091QK4" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="بداية تعلم الألمانية، تعليم ألماني ذاتي، منهج deutschstart، خطة دراسة ألمانية، تعلم الألمانية للمبتدئين العرب، مصادر مجانية لألمانية" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="author" content="فريق deutschstart | بداية الألمانية" />
+    <meta name="brand" content="deutschstart" />
+    <meta name="application-name" content="بداية الألمانية" />
+    <meta name="google-site-verification" content="fT4o3RtWmiGf0Rc5RGXgcd5NIvO6sGThG2idP091QK4" />
 
-<!-- og Tag -->
-<meta property="og:site_name" content="deutschstart | بداية الألمانية" />
-<meta property="og:description" content="تعلم الألمانية بسهولة مع deutschstart - منصة عربية تقدم خارطة طريق منهجية، شروح مبسطة، وتمارين تفاعلية لإتقان اللغة من الصفر إلى الاحتراف" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="تعلم الألمانية بمنهجية - دليل deutschstart الشامل" />
-<meta property="og:url" content="https://www.deutschstart.com" />
-<meta property="og:image" content="https://www.deutschstart.com/images/ogImg.jpeg" />
-<meta http-equiv="Content-Language" content="ar" />
-<meta property="og:locale" content="ar_AR" />
-		<title>{title}</title>
-	</head>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="deutschstart | بداية الألمانية" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta http-equiv="Content-Language" content="ar" />
+    <meta property="og:locale" content="ar_AR" />
+    
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+  </head>
 	<body>
 		<slot />
 	</body>
