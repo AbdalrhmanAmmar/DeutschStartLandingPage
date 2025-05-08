@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/navigation/Navbar.astro';
+---
+
+<Layout title="الصفحة غير موجودة - بداية الألمانية">
+  <Navbar />
+  <main class="not-found-page">
+    <div class="container">
+      <div class="content">
+        <div class="error-code">404</div>
+        <h1>عذراً، الصفحة غير موجودة</h1>
+        <p>يبدو أنك وصلت إلى صفحة غير موجودة. لا تقلق، يمكنك العودة إلى الصفحة الرئيسية أو تصفح دوراتنا التعليمية.</p>
+        <div class="german-phrase">
+          <span class="phrase">Entschuldigung!</span>
+          <span class="translation">عذراً!</span>
+        </div>
+        <div class="buttons">
+          <a href="/" class="btn btn-primary">العودة للصفحة الرئيسية</a>
+          <a href="/#courses" class="btn btn-secondary">تصفح الدورات</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+.not-found-page {
+  min-height: 100vh;
+  padding-top: 5rem;
+  background: linear-gradient(135deg, var(--bg-warm) 0%, var(--white) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.not-found-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(to right,
+    #000000 0%,
+    #000000 33.33%,
+    #DE0000 33.33%,
+    #DE0000 66.66%,
+    #FFD700 66.66%,
+    #FFD700 100%
+  );
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-family: 'Cairo', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.german-phrase {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-light);
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+.phrase {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.translation {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: #B80000;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--accent);
+}
+
+.btn-secondary:hover {
+  background: #FFE44D;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 2rem;
+  }
+
+  .error-code {
+    font-size: 4rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
