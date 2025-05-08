@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/navigation/Navbar.astro';
 
-// بيانات SEO مخصصة للصفحة
 const pageTitle = "من نحن - بداية الألمانية | قصتنا ورؤيتنا لتعليم اللغة الألمانية";
 const pageDescription = "تعرف على فريق بداية الألمانية وقصة تأسيس المنصة. نقدم منهجًا متكاملًا لتعلم الألمانية ذاتيًا بخبرة عملية حقيقية.";
 const canonicalURL = "https://www.deutschstart.com/about";
@@ -34,20 +33,18 @@ const ogImage = "https://www.deutschstart.com/images/myimg.jpg";
                 loading="lazy"
               />
             </div>
-            <h1 itemprop="headline">مرحباً بكم في بداية الألمانية</h1>
+            <h1 itemprop="headline">قصتني في بداية الألمانية: لماذا أنشأت هذه المنصة؟</h1>
           </div>
           
           <div class="story-section" itemprop="description">
-            <p itemprop="text">
-              أنا شغوف باللغة الألمانية وقصتي معها بدأت من خلال رحلة التعلم الذاتي. خلال هذه الرحلة، واجهت تحدي تشتت المصادر وصعوبة إيجاد مسار تعليمي واضح ومنظم.
+            <p>
+              مرحباً! أنا مؤسس منصة "بداية الألمانية"، وجاءت فكرة هذا المشروع من رحلتي الشخصية مع تعلم اللغة الألمانية ذاتيًا، حيث واجهت تحديات كثيرة من تشتت المصادر وصعوبة إيجاد مسار منظم.
             </p>
-            
-            <p itemprop="text">
-              من هذا المنطلق، قررت إنشاء "بداية الألمانية" - منصة تعليمية شاملة تجمع كل ما يحتاجه متعلم اللغة الألمانية في مكان واحد. هدفي هو تبسيط رحلة التعلم وتوفير مسار واضح يمنع التشتت ويساعد المتعلمين في الوصول إلى أهدافهم بكفاءة.
+            <p>
+              لذلك أسّسنا هذه المنصة التعليمية الشاملة التي توفر كل ما يحتاجه المتعلم في مكان واحد. هدفنا أن تكون "بداية الألمانية" دليلك الموثوق والمنظم لتعلم اللغة بكفاءة ومتعة.
             </p>
-
-            <p itemprop="text">
-              نحن نؤمن أن تعلم اللغة الألمانية يجب أن يكون منظماً وممتعاً في نفس الوقت. لذلك، قمنا بتطوير منهج شامل يجمع أفضل المصادر والأدوات التعليمية في مكان واحد، مما يوفر تجربة تعلم سلسة وفعالة.
+            <p>
+              نحن نؤمن أن التعليم الفعّال يحتاج إلى تنظيم وشغف. لهذا السبب قمنا بتجميع أفضل الأدوات والمصادر والمنهجيات لنقدّم لك تجربة تعلم فريدة وسلسة.
             </p>
           </div>
         </div>
@@ -62,7 +59,7 @@ const ogImage = "https://www.deutschstart.com/images/myimg.jpg";
 <meta name="twitter:description" content={pageDescription} />
 <meta name="twitter:image" content={ogImage} />
 
-<!-- بيانات هيكلية إضافية -->
+<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,15 +73,15 @@ const ogImage = "https://www.deutschstart.com/images/myimg.jpg";
     "logo": {
       "@type": "ImageObject",
       "url": "https://www.deutschstart.com/logo.png",
-      "width": "300",
-      "height": "60"
+      "width": 300,
+      "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
     "url": "https://www.deutschstart.com/images/og-about.jpg",
-    "width": "1200",
-    "height": "630"
+    "width": 1200,
+    "height": 630
   }
 }
 </script>
@@ -177,7 +174,7 @@ const ogImage = "https://www.deutschstart.com/images/myimg.jpg";
 }
 
 h1 {
-  color: var(--primary);
+  color: var(--primary, #DE0000);
   font-size: 2rem;
   margin-bottom: 2rem;
   position: relative;
@@ -203,7 +200,7 @@ h1::after {
 }
 
 .story-section p {
-  color: var(--text-secondary);
+  color: var(--text-secondary, #333333);
   line-height: 1.8;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
